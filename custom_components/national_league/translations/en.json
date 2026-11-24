@@ -1,0 +1,8 @@
+{
+  "config": {
+    "step": { "user": { "title": "National League", "description": "Pick the team to follow.", "data": { "team_id": "Team" } } },
+    "error": { "cannot_connect": "Cannot reach nationalleague.ch." },
+    "abort": { "already_configured": "This team is already followed." }
+  },
+  "entity": { "sensor": { "next_game": { "name": "Next game" }, "last_result": { "name": "Last result" }, "rank": { "name": "Standing" } } }
+}
