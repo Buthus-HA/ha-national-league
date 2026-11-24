@@ -24,6 +24,9 @@ Puis **Paramètres → Appareils et services → Ajouter une intégration → Na
 | `sensor.fribourg_gotteron_dernier_resultat` | `3-0 (W)` | `opponent`, `result`, `result_label`, `win`, `results` (5 derniers) |
 | `sensor.fribourg_gotteron_classement` | rang | `points`, `games_played`, `goal_diff`, `streak`, `standings` (tableau complet) |
 
+Chaque équipe a une URL de logo (`logo` dans `standings`, `opponent_logo` dans les matchs) pointant vers le site officiel ;
+les logos sont des marques des clubs et ne sont pas inclus dans ce dépôt.
+
 Codes de résultat : `W` victoire, `L` défaite, `OTW`/`OTL` en prolongation, `SOW`/`SOL` aux tirs au but.
 Les matchs amicaux sont ignorés.
 

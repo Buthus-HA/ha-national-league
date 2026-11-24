@@ -4,8 +4,15 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
+from .const import LOGO_URL
+
 FINISHED = "finished"
 NOT_STARTED = "beforeStartOfPlay"
+
+
+def logo(team_id: Any) -> str:
+    """URL du logo officiel d'une équipe."""
+    return LOGO_URL.format(team_id=team_id)
 
 
 def parse_date(value: str) -> datetime:
@@ -36,6 +43,7 @@ def game_view(game: dict[str, Any], team_id: str) -> dict[str, Any]:
         "home": home,
         "opponent": game["awayTeamName"] if home else game["homeTeamName"],
         "opponent_short": game["awayTeamShortName"] if home else game["homeTeamShortName"],
+        "opponent_logo": logo(game["awayTeamId"] if home else game["homeTeamId"]),
         "arena": game.get("arena"),
         "status": game.get("status"),
         "exhibition": bool(game.get("isExhibition")),
@@ -73,6 +81,7 @@ def standings(teams: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "team_id": str(t.get("teamId")),
                 "name": t.get("name"),
                 "short": t.get("shortName"),
+                "logo": logo(t.get("teamId")),
                 "gp": t.get("gp"),
                 "points": t.get("po"),
                 "goals_for": t.get("g"),

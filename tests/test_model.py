@@ -19,6 +19,7 @@ def test_split_and_results():
     # prochain match
     assert upcoming[0]["opponent"] == "ZSC Lions" and upcoming[0]["home"] is True
     assert upcoming[0]["date"] == "2026-11-24T18:45:00+00:00"
+    assert upcoming[0]["opponent_logo"] == "https://www.nationalleague.ch/api/teams/101139/logo"
 
 
 def test_overtime_and_shootout_labels():
@@ -33,6 +34,7 @@ def test_overtime_and_shootout_labels():
 def test_standings():
     table = model.standings(TEAMS)
     assert table[0]["name"] == "ZSC Lions" and table[0]["points"] == 55
+    assert table[0]["logo"] == "https://www.nationalleague.ch/api/teams/101139/logo"
     fri = next(t for t in table if t["team_id"] == FRI)
     assert fri["rank"] == 8 and fri["points"] == 31 and fri["gp"] == 22
     # 5 derniers matchs, du plus ancien au plus récent (cohérent avec les résultats réels)

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.0 — 2026-11-24
+- Logos des équipes (référencés depuis le site officiel) : attributs `logo` / `opponent_logo` et image des capteurs.
+
 ## 0.1.0 — 2026-11-23
 - Version initiale : prochain match, 5 prochains matchs, derniers résultats, classement complet.
 - Événement `national_league_game_finished` à la fin de chaque match de l'équipe suivie.

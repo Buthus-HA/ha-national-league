@@ -47,6 +47,11 @@ class NextGameSensor(_Base):
     _attr_icon = "mdi:hockey-sticks"
 
     @property
+    def entity_picture(self) -> str | None:
+        up = self.coordinator.data["upcoming"]
+        return up[0]["opponent_logo"] if up else None
+
+    @property
     def native_value(self):
         up = self.coordinator.data["upcoming"]
         return model.parse_date(up[0]["date"]) if up else None
@@ -57,10 +62,11 @@ class NextGameSensor(_Base):
         first = up[0] if up else {}
         return {
             "opponent": first.get("opponent"),
+            "opponent_logo": first.get("opponent_logo"),
             "home": first.get("home"),
             "arena": first.get("arena"),
             "upcoming": [
-                {k: g[k] for k in ("date", "opponent", "opponent_short", "home", "arena")} for g in up[:UPCOMING_COUNT]
+                {k: g[k] for k in ("date", "opponent", "opponent_short", "opponent_logo", "home", "arena")} for g in up[:UPCOMING_COUNT]
             ],
         }
 
@@ -68,6 +74,11 @@ class NextGameSensor(_Base):
 class LastResultSensor(_Base):
     _key = "last_result"
     _attr_icon = "mdi:scoreboard-outline"
+
+    @property
+    def entity_picture(self) -> str | None:
+        res = self.coordinator.data["results"]
+        return res[0]["opponent_logo"] if res else None
 
     @property
     def native_value(self) -> str | None:
@@ -80,13 +91,14 @@ class LastResultSensor(_Base):
         first = res[0] if res else {}
         return {
             "opponent": first.get("opponent"),
+            "opponent_logo": first.get("opponent_logo"),
             "home": first.get("home"),
             "date": first.get("date"),
             "result": first.get("result"),
             "result_label": first.get("result_label"),
             "win": first.get("win"),
             "results": [
-                {k: g[k] for k in ("date", "opponent", "opponent_short", "home", "score", "result", "result_label", "win")}
+                {k: g[k] for k in ("date", "opponent", "opponent_short", "opponent_logo", "home", "score", "result", "result_label", "win")}
                 for g in res[:RESULTS_COUNT]
             ],
         }
@@ -95,6 +107,10 @@ class LastResultSensor(_Base):
 class RankSensor(_Base):
     _key = "rank"
     _attr_icon = "mdi:podium"
+
+    @property
+    def entity_picture(self) -> str | None:
+        return model.logo(self.coordinator.team_id)
 
     @property
     def native_value(self) -> int | None:
