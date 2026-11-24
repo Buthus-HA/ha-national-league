@@ -47,7 +47,7 @@ async def test_sensors_and_event(hass: HomeAssistant, aioclient_mock) -> None:
     assert len(nxt.attributes["upcoming"]) == 5
     assert last.state == "1-2 (L)" and last.attributes["opponent"] == "HC Ajoie"
     assert [r["score"] for r in last.attributes["results"][:3]] == ["1-2", "3-0", "2-4"]
-    assert rank.state == "8" and rank.attributes["points"] == 31
+    assert rank.state == "8" and rank.attributes["points"] == 31 and rank.attributes["team_id"] == "103138"
     assert rank.attributes["entity_picture"].endswith("/teams/103138/logo")
     assert last.attributes["entity_picture"].endswith("/teams/103144/logo")  # HC Ajoie
     assert len(rank.attributes["standings"]) == 14

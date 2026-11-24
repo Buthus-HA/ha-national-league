@@ -121,6 +121,7 @@ class RankSensor(_Base):
     def extra_state_attributes(self) -> dict[str, Any]:
         team = self.coordinator.data["team"] or {}
         return {
+            "team_id": self.coordinator.team_id,
             "points": team.get("points"),
             "games_played": team.get("gp"),
             "goal_diff": team.get("goal_diff"),

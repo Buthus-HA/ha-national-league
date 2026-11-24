@@ -11,6 +11,7 @@ VERSION: str = json.loads((Path(__file__).parent / "manifest.json").read_text(en
 API_BASE = "https://www.nationalleague.ch/api"
 API_LANG = "de-CH"
 # Logos hébergés par le site officiel (référencés, jamais copiés dans le dépôt)
+CARD_URL = "/national_league/national-league-card.js"
 LOGO_URL = API_BASE + "/teams/{team_id}/logo"
 
 CONF_TEAM_ID = "team_id"

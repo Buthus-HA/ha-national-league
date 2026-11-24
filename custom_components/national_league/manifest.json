@@ -3,10 +3,11 @@
   "name": "National League (hockey)",
   "codeowners": [],
   "config_flow": true,
+  "dependencies": ["http", "frontend"],
   "documentation": "https://github.com/Buthus-HA/ha-national-league",
   "integration_type": "service",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/Buthus-HA/ha-national-league/issues",
   "requirements": [],
-  "version": "0.2.0"
+  "version": "0.3.0"
 }

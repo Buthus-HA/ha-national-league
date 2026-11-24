@@ -30,6 +30,21 @@ les logos sont des marques des clubs et ne sont pas inclus dans ce dépôt.
 Codes de résultat : `W` victoire, `L` défaite, `OTW`/`OTL` en prolongation, `SOW`/`SOL` aux tirs au but.
 Les matchs amicaux sont ignorés.
 
+## Carte de classement
+
+Livrée avec l'intégration (aucune ressource à ajouter) :
+
+```yaml
+type: custom:national-league-standings-card
+entity: sensor.fribourg_gotteron_classement
+# title: Classement        # "" pour masquer
+# form: true               # colonne Forme (masquée sur petits écrans)
+# zones:                   # découpage par défaut
+#   - { label: Play-off, to: 6,  color: "#2e7d32" }
+#   - { label: Play-in,  to: 10, color: "#ef6c00" }
+#   - { label: Play-out, to: 14, color: "#c62828" }
+```
+
 ## Événement
 
 `national_league_game_finished` est émis quand un match de l'équipe se termine :

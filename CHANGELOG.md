@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 — 2026-11-24
+- Carte `custom:national-league-standings-card` : classement avec zones Play-off / Play-in / Play-out en colonne colorée (texte vertical), logos, équipe suivie mise en évidence, forme.
+- Capteur de classement : attribut `team_id`.
+
 ## 0.2.0 — 2026-11-24
 - Logos des équipes (référencés depuis le site officiel) : attributs `logo` / `opponent_logo` et image des capteurs.
 
